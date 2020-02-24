@@ -15,6 +15,7 @@ dayjs.locale("ja");
 
 import CalendarBoard from "./components/CalendarBoard/container";
 import rootReducer from "./redux/rootReducer";
+import CurrentScheduleDialog from "./components/CurrentScheduleDialog/container";
 
 const store = createStore(rootReducer);
 
@@ -24,6 +25,7 @@ const App = () => (
       <Navigation />
       <CalendarBoard />
       <AddScheduleDialog />
+      <CurrentScheduleDialog />
     </MuiPickersUtilsProvider>
   </Provider>
 );
