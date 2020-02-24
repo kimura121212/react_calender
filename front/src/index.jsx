@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import dayjs from "dayjs";
 import "dayjs/locale/ja";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 import Navigation from "./components/Navigation/container";
 
 import AddScheduleDialog from "./components/AddScheduleDialog/container";
@@ -17,7 +18,7 @@ import CalendarBoard from "./components/CalendarBoard/container";
 import rootReducer from "./redux/rootReducer";
 import CurrentScheduleDialog from "./components/CurrentScheduleDialog/container";
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 const App = () => (
   <Provider store={store}>

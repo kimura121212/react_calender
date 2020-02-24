@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { GridList, Typography } from "@material-ui/core";
 
 import CalendarElement from "../CalendarElement";
@@ -12,10 +12,13 @@ const CalendarBoard = ({
   month, 
   openAddScheduleDialog,
   schedules,
-  openCurrentScheduleDialog
+  openCurrentScheduleDialog,
+  fetchSchedule
 }) => {
-  console.log(calendar);
-  console.log(schedules);
+  useEffect(() => {
+    // 初回のみdataを取得する
+    fetchSchedule();
+  }, []);
   return (
     <div className={styles.container}>
       <GridList className={styles.grid} cols={7} spacing={0} cellHeight="auto">
